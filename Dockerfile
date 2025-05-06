@@ -25,12 +25,13 @@ RUN mkdir -p /opt/steamcmd && \
     cd /opt/steamcmd && \
     wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && \
     tar -xvzf steamcmd_linux.tar.gz && \
-    mkdir -p /opt/steamcmd/.steam/sdk32 && \
-    mkdir -p /opt/steamcmd/.steam/sdk64 && \
-    ln -s /opt/steamcmd/linux32/steamclient.so /opt/steamcmd/.steam/sdk32/steamclient.so && \
-    ln -s /opt/steamcmd/linux64/steamclient.so /opt/steamcmd/.steam/sdk64/steamclient.so && \
+    mkdir -p /home/container/.steam/sdk32 && \
+    mkdir -p /home/container/.steam/sdk64 && \
+    ln -s /opt/steamcmd/linux32/steamclient.so /home/container/.steam/sdk32/steamclient.so && \
+    ln -s /opt/steamcmd/linux64/steamclient.so /home/container/.steam/sdk64/steamclient.so && \
     chmod -R 775 /opt/steamcmd && \
-    chgrp -R container /opt/steamcmd
+    chgrp -R container /opt/steamcmd && \
+    chown -R 1001:1001 /home/container/.steam
 ENV PATH="/opt/steamcmd:$PATH"
 
 # Login as user -> container
@@ -38,4 +39,4 @@ USER container
 WORKDIR /home/container
 
 # Run update if start is not passed
-ENTRYPOINT ["bash", "-c", "update.sh && start.sh"]
+CMD ["bash", "-c", "update.sh && start.sh"]
