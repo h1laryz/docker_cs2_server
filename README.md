@@ -2,7 +2,9 @@
 
 ## Docker image
 
-`docker pull ghcr.io/h1laryz/killaura-cs2-server:latest`
+``` bash
+docker pull ghcr.io/h1laryz/killaura-cs2-server:latest
+```
 
 ## Env variables
 
