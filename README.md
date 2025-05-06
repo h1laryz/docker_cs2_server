@@ -7,9 +7,11 @@
 ## Env variables
 
 ``` bash
-export KILLAURA_CS2_LAUNCH_PARAMS="+game_type 0 +game_mode 1 \
-  +sv_lan 0 +rcon_password \"12345\" \
-  +mapgroup mg_active +map de_dust2 +sv_visiblemaxplayers 10"
+export KILLAURA_CS2_DEFAULT_MAP="de_mirage"
+export KILLAURA_CS2_GAME_TYPE="0"
+export KILLAURA_CS2_GAME_MODE="1"
+export KILLAURA_CS2_LAUNCH_PARAMS="+sv_lan 0 +rcon_password \"12345\" \
+  +mapgroup mg_active +sv_visiblemaxplayers 10"
 ```
 
 ## Run container
@@ -21,6 +23,9 @@ sudo chown 1001:1001 ~/cs2_server
 docker run --rm --name killaura-cs2-server \
   -v ~/cs2_server/:/home/container/cs2 \
   -e KILLAURA_CS2_LAUNCH_PARAMS="$KILLAURA_CS2_LAUNCH_PARAMS" \
+  -e KILLAURA_CS2_DEFAULT_MAP="$KILLAURA_CS2_DEFAULT_MAP" \
+  -e KILLAURA_CS2_GAME_TYPE="$KILLAURA_CS2_GAME_TYPE" \
+  -e KILLAURA_CS2_GAME_MODE=$KILLAURA_CS2_GAME_MODE" \
   -p 27015:27015/udp -p 27015:27015/tcp \
   ghcr.io/h1laryz/killaura-cs2-server:latest
 ```
