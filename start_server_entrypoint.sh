@@ -5,7 +5,7 @@ echo "/home/container/cs2/game/bin/linuxsteamrt64/cs2 \
     -console \
     -usercon \
     -port 27015 \
-    $KILLAURA_CS2_LAUNCH_PARAMS
+    $KILLAURA_CS2_LAUNCH_PARAMS"
 
 /home/container/cs2/game/bin/linuxsteamrt64/cs2 \
     -dedicated \
