@@ -32,7 +32,7 @@ steamcmd.sh \
 	+quit
 
 # Define the file name
-FILE="~/cs2/game/csgo/gameinfo.gi"
+FILE="/home/container/cs2/game/csgo/gameinfo.gi"
 
 # Define the pattern to search for and the line to add
 PATTERN="Game_LowViolence[[:space:]]*csgo_lv // Perfect World content override"
