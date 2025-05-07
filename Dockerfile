@@ -27,6 +27,8 @@ RUN mkdir -p /opt/steamcmd && \
     tar -xvzf steamcmd_linux.tar.gz && \
     mkdir -p /home/container/.steam/sdk32 && \
     mkdir -p /home/container/.steam/sdk64 && \
+    ln -s /opt/steamcmd/linux32/steamclient.so /home/container/.steam/sdk32/steamclient.so && \
+    ln -s /opt/steamcmd/linux64/steamclient.so /home/container/.steam/sdk64/steamclient.so && \
     chmod -R 775 /opt/steamcmd && \
     chgrp -R container /opt/steamcmd && \
     chown -R 1001:1001 /home/container/.steam

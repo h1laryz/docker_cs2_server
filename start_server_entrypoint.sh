@@ -1,8 +1,5 @@
 #!/bin/bash
 
-ln -s /opt/steamcmd/linux32/steamclient.so /home/container/.steam/sdk32/steamclient.so && \
-ln -s /opt/steamcmd/linux64/steamclient.so /home/container/.steam/sdk64/steamclient.so && \
-
 echo "/home/container/cs2/game/bin/linuxsteamrt64/cs2 \
     -dedicated \
     -console \
